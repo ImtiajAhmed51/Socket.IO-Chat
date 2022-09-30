@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1044370165988",
+    "project_id": "socketio-737f6",
+    "storage_bucket": "socketio-737f6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1044370165988:android:7a2035007071394009dcf1",
+        "android_client_info": {
+          "package_name": "com.example.chatsocketio"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1044370165988-i8bgcbg507hn4vij29skn695gh7u9pbv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBsz6pwxjJGibzcH9SYRBmr_R6iZHUhb84"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1044370165988-i8bgcbg507hn4vij29skn695gh7u9pbv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

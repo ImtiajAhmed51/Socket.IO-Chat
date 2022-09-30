@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Chat.IO</string>
+    <string name="logout">Logout</string>
+    <string name="name">Name</string>
+    <string name="_00_00_00">00 : 00 : 00</string>
+
+
+</resources>

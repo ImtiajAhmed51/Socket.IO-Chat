@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/darkGreen"
+    android:id="@+id/root"
+    tools:context=".ChatUserActivity">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/send_container"
+        android:layout_below="@+id/toolbar">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:backgroundTintMode="multiply"
+            android:src="@drawable/ic_background"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/messageListView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:paddingTop="3dp"
+            android:paddingBottom="18dp"
+            tools:listitem="@layout/sender_message" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/typingUserRelativeLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/send_container"
+        android:layout_alignParentStart="true"
+        >
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/animationView"
+            android:layout_width="48dp"
+            android:layout_height="23dp"
+            android:layout_marginStart="18dp"
+            android:visibility="gone"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/typinganimation" />
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/typingUserPicture"
+            android:layout_width="14dp"
+            android:layout_height="14dp"
+            android:layout_alignTop="@+id/animationView"
+            android:layout_alignBottom="@+id/animationView"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="8dp"
+            android:src="@drawable/admin"
+            android:visibility="gone" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/imageRelativeLayout"
+        android:layout_width="110dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="3dp"
+        android:layout_above="@+id/send_container"
+        android:layout_alignParentStart="true"
+        android:background="@drawable/imageviewbg"
+        android:visibility="gone">
+        <ImageView
+            android:id="@+id/imageViewClose"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="2dp"
+            android:src="@drawable/ic_close" />
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/imageSendView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="19dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginBottom="4dp"
+            android:src="@drawable/admin"
+            app:riv_corner_radius="3dp" />
+    </RelativeLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/send_container"
+        android:layout_width="match_parent"
+        android:minHeight="50dp"
+
+        android:layout_height="wrap_content"
+
+        android:paddingTop="8dp"
+        android:paddingEnd="8dp"
+        android:paddingBottom="8dp"
+        android:paddingStart="30dp"
+        android:background="@drawable/shape_circle"
+        android:layout_alignParentBottom="true">
+
+        <EditText
+            android:id="@+id/textField"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Message"
+            android:inputType="textCapSentences|textMultiLine"
+            android:maxHeight="110dp"
+            android:background="@drawable/edit_text_bg"
+            android:paddingStart="12dp"
+            android:paddingTop="6dp"
+            android:paddingEnd="12dp"
+            android:paddingBottom="6dp"
+            android:layout_marginEnd="15dp"
+            android:textColor="@color/white"
+            android:textColorHint="#A3A3A3"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:minHeight="36dp"
+            app:layout_constraintEnd_toStartOf="@+id/sendImage"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/sendImage"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="10dp"
+            android:src="@drawable/ic_image"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/sendButton"
+            android:layout_marginBottom="4.8dp"/>
+
+
+        <ImageView
+            android:id="@+id/sendButton"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="8dp"
+            android:onClick="sendMessage"
+            android:src="@drawable/ic_send"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginBottom="4.8dp"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/darkGreen"
+        app:popupTheme="@style/MyToolbarStyle">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/backPressId"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/ic_back"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/chatProfilePic"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="5dp"
+                android:padding="6dp"
+                android:src="@drawable/user_dp"
+                android:transitionName="imageTransition"
+                app:civ_border_color="@color/darkGreen2"
+                app:civ_border_width="1.5dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/backPressId"
+                app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:id="@+id/chatDetailName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="User Name"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:transitionName="nameTransition"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/chatProfilePic"
+                app:layout_constraintTop_toTopOf="@+id/chatProfilePic" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.appcompat.widget.Toolbar>
+</RelativeLayout>

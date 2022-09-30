@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/darkGreen"
+    android:id="@+id/root"
+    tools:context=".AllUserActivity">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/darkGreen"
+            app:popupTheme="@style/MyToolbarStyle">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/userProfileUpdateClick"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/serverConnectionId"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:text="Server Not Connected"
+                    android:textColor="#C62828"
+                    android:textSize="11sp"
+                    app:layout_constraintStart_toEndOf="@+id/ownPicture"
+                    app:layout_constraintTop_toBottomOf="@+id/ownName" />
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/ownPicture"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:padding="6dp"
+                    android:src="@drawable/user_dp"
+                    android:transitionName="imageTransition"
+                    app:civ_border_color="#C62828"
+                    app:civ_border_width="1.5dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <ImageView
+                    android:id="@+id/ownOnlineStatus"
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:layout_marginEnd="4dp"
+                    android:layout_marginBottom="6dp"
+                    android:elevation="4dp"
+                    android:src="@drawable/ic_online"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="@+id/ownPicture"
+                    app:layout_constraintEnd_toEndOf="@+id/ownPicture" />
+
+                <TextView
+                    android:id="@+id/ownName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="User Name"
+                    android:layout_marginTop="8dp"
+                    android:textColor="@color/white"
+                    android:textSize="17sp"
+                    android:layout_marginStart="8dp"
+                    android:textStyle="bold"
+                    android:transitionName="nameTransition"
+                    app:layout_constraintStart_toEndOf="@+id/ownPicture"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.appcompat.widget.Toolbar>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/toolbar"
+           >
+
+            <TextView
+                android:id="@+id/waitingId"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="Please Wait ......"
+                android:textColor="@color/white"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                android:visibility="visible" />
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/allAnimationView"
+                android:layout_width="220dp"
+                android:layout_height="285dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginBottom="3dp"
+                android:visibility="gone"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                android:layout_marginTop="30dp"
+                app:lottie_rawRes="@raw/searching_for_profile" />
+<!--            <ImageView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:scaleType="centerCrop"-->
+<!--                android:backgroundTintMode="multiply"-->
+<!--                android:src="@drawable/ic_background"-->
+<!--                />-->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/userListView1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                android:paddingTop="3dp"
+                android:paddingBottom="9dp"
+                tools:listitem="@layout/item_user"
+                />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+</RelativeLayout>

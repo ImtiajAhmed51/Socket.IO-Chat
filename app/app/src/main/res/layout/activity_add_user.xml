@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".AddUserActivity"
+    >
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:backgroundTintMode="multiply"
+        android:src="@drawable/ic_background"/>
+
+    <Button
+        android:id="@+id/clearPicture"
+        android:layout_width="50dp"
+        android:layout_height="25dp"
+        android:background="@drawable/receiver_message"
+        android:elevation="5dp"
+        android:text="Clear"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/white"
+        android:textSize="8sp"
+        android:translationZ="100dp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/addProfilePicture"
+        app:layout_constraintStart_toStartOf="@+id/addProfilePicture"
+        app:layout_constraintTop_toBottomOf="@+id/addProfilePicture" />
+    <EditText
+        android:id="@+id/userNickName"
+        android:layout_width="260dp"
+        android:layout_height="70dp"
+        android:layout_alignParentStart="true"
+        android:background="@drawable/sample_bg"
+        android:elevation="5dp"
+        android:hint="Enter Your Name"
+        android:maxLength="21"
+        android:transitionName="nameTransition"
+        android:inputType="textCapWords"
+        android:paddingStart="75dp"
+        android:paddingEnd="10dp"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:textColorHint="#DFDFDF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/addProfilePicture"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="5dp"
+        android:src="@drawable/user_dp"
+        android:transitionName="imageTransition"
+        android:translationZ="90dp"
+        app:civ_border_color="@color/darkGreen2"
+        app:civ_border_width="2dp"
+        app:layout_constraintBottom_toBottomOf="@+id/userNickName"
+        app:layout_constraintStart_toStartOf="@+id/userNickName"
+        app:layout_constraintTop_toTopOf="@+id/userNickName" />
+    <Button
+        android:id="@+id/setNickName"
+        android:layout_width="100dp"
+        android:layout_height="35dp"
+        android:layout_below="@+id/userNickName"
+        android:background="@drawable/sample_bg"
+        android:elevation="5dp"
+        android:enabled="true"
+        android:text="Log In"
+        android:textColor="@color/white"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userNickName" />
+</androidx.constraintlayout.widget.ConstraintLayout>
